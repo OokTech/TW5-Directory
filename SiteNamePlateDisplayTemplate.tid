@@ -1,0 +1,20 @@
+tags: Templates
+title: SiteNamePlateDisplayTemplate
+
+<tr>
+    <td>
+        <a
+            href={{!!url}}
+            target='_blank'
+        >
+            <$view
+                field='caption'
+            />
+        </a>
+    </td>
+    <td>
+        <$view
+            field='description'
+        />
+    </td>
+</tr>

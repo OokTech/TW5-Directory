@@ -1,0 +1,186 @@
+title: Directory
+
+\define thisWebsiteTitleFilter()
+[all[tiddlers+shadows]tag<CurrentPerson>tag[<Name Plate>]name_plate_type[TiddlyWiki]tag[Website]sort[title]regexp[(?i)$(TitleSearch)$]regexp:description[(?i)$(DescriptionSearch)$]]
+\end
+
+\define thisPluginTitleFilter()
+[all[tiddlers+shadows]tag<CurrentPerson>tag[<Name Plate>]name_plate_type[TiddlyWiki]tag[Plugin]sort[title]regexp:title[(?i)$(TitleSearch)$]regexp:description[(?i)$(DescriptionSearch)$]]
+\end
+
+\define thisEditionTitleFilter()
+[all[tiddlers+shadows]tag<CurrentPerson>tag[<Name Plate>]name_plate_type[TiddlyWiki]tag[Edition]sort[title]regexp:title[(?i)$(TitleSearch)$]regexp:description[(?i)$(DescriptionSearch)$]]
+\end
+
+<$checkbox
+    tiddler='$:/temp/Directory/search'
+    field='show_website'
+    checked='true'
+    unchecked='false'
+    default='true'
+>
+    Show Websites
+</$checkbox>
+<$checkbox
+    tiddler='$:/temp/Directory/search'
+    field='show_plugins'
+    checked='true'
+    unchecked='false'
+    default='true'
+>
+    Show Plugins
+</$checkbox>
+<$checkbox
+    tiddler='$:/temp/Directory/search'
+    field='show_macros'
+    checked='true'
+    unchecked='false'
+    default='true'
+>
+    Show Macros
+</$checkbox>
+<$checkbox
+    tiddler='$:/temp/Directory/search'
+    field='show_editions'
+    checked='true'
+    unchecked='false'
+    default='true'
+>
+    Show Editions
+</$checkbox>
+
+Title Search:
+<$edit-text
+    tiddler='$:/temp/Directory/search'
+    field=title_search
+    placeholder='Title Search'
+    class='tc-edit-texteditor'
+/>
+
+Description Search:
+<$edit-text
+    tiddler='$:/temp/Directory/search'
+    field=description
+    placeholder='Description Search'
+    class='tc-edit-texteditor'
+/>
+
+<$vars
+    TitleSearch={{$:/temp/Directory/search!!title_search}}
+    DescriptionSearch={{$:/temp/Directory/search!!description}}
+    CurrentPerson="""OokTech"""
+>
+    <$reveal
+        type='nomatch'
+        state='$:/temp/Directory/search!!show_editions'
+        text='false'
+    >
+        __Editions__
+
+        <table>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <$tiddler
+                tiddler=<<ThisTiddler>>
+            >
+                <$list
+                    filter=<<thisEditionTitleFilter>>
+                    template=SiteNamePlateDisplayTemplate
+                >
+
+                </$list>
+            </$tiddler>
+        </table>
+    </$reveal>
+
+    <$reveal
+        type='nomatch'
+        state='$:/temp/Directory/search!!show_website'
+        text='false'
+    >
+        __Websites (demos and reference)__
+
+        <table>
+            <tr>
+                <th>
+                    Site Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <$tiddler
+                tiddler=<<ThisTiddler>>
+            >
+                <$list
+                    filter=<<thisWebsiteTitleFilter>>
+                    template=SiteNamePlateDisplayTemplate
+                >
+
+                </$list>
+            </$tiddler>
+        </table>
+    </$reveal>
+
+    <$reveal
+        type='nomatch'
+        state='$:/temp/Directory/search!!show_plugins'
+        text='false'
+    >
+        __Plugins__
+
+        <table>
+            <tr>
+                <th>
+                    Plugin Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <$tiddler
+                tiddler=<<ThisTiddler>>
+            >
+                <$list
+                    filter=<<thisPluginTitleFilter>>
+                    template=SiteNamePlateDisplayTemplate
+                >
+
+                </$list>
+            </$tiddler>
+        </table>
+    </$reveal>
+
+    <$reveal
+        type='nomatch'
+        state='$:/temp/Directory/search!!show_macros'
+        text='false'
+    >
+        __Macros__
+
+        <table>
+            <tr>
+                <th>
+                    Macro Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <$tiddler tiddler=<<ThisTiddler>>>
+                <$list
+                    filter='[tag<CurrentPerson>tag[<Name Plate>]name_plate_type[TiddlyWiki]tag[Macro]sort[title]]'
+                    template=SiteNamePlateDisplayTemplate
+                >
+
+                </$list>
+            </$tiddler>
+        </table>
+    </$reveal>
+</$vars>
