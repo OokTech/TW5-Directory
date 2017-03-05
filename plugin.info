@@ -2,7 +2,7 @@
 	"title": "$:/plugins/OokTech/Directory",
 	"description": "A directory listing for TiddlyWiki5",
 	"author": "OokTech",
-	"version": "0.0.4",
+	"version": "0.0.7",
 	"core-version": ">=5.1.8",
 	"source": "https://github.com/OokTech/TW5-Directory",
 	"plugin-type": "plugin"

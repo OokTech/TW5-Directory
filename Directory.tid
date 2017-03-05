@@ -83,6 +83,12 @@ Description Search:
                     Name
                 </th>
                 <th>
+                    Version
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
                     Description
                 </th>
             </tr>
@@ -110,6 +116,12 @@ Description Search:
             <tr>
                 <th>
                     Site Name
+                </th>
+                <th>
+                    Version
+                </th>
+                <th>
+                    Date
                 </th>
                 <th>
                     Description
@@ -141,6 +153,12 @@ Description Search:
                     Plugin Name
                 </th>
                 <th>
+                    Version
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
                     Description
                 </th>
             </tr>
@@ -168,6 +186,12 @@ Description Search:
             <tr>
                 <th>
                     Macro Name
+                </th>
+                <th>
+                    Version
+                </th>
+                <th>
+                    Date
                 </th>
                 <th>
                     Description

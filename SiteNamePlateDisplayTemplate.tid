@@ -9,8 +9,22 @@ title: SiteNamePlateDisplayTemplate
         >
             <$view
                 field='caption'
-            />
+            >
+                <$view
+                    field='title'
+                />
+            </$view>
         </a>
+    </td>
+    <td>
+        <$view
+            field='revision'
+        />
+    </td>
+    <td>
+        <$view
+            field='date'
+        />
     </td>
     <td>
         <$view
